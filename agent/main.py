@@ -1,4 +1,4 @@
-from agent import agent
+from agent import agent_executor
 
 print("💰 Finance AI Agent running...")
 print("Type 'exit' to quit.\n")
@@ -8,7 +8,7 @@ while True:
         break
 
     try:
-        result = agent.invoke({"input": user_input})
+        result = agent_executor.invoke({"input": user_input})
         print("Agent:", result["output"])
     except Exception as e:
         print("Error:", e)
