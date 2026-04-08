@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import json
 import os
 
-from tools import login, get_balance, send_money
+from tools import *
 
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 load_dotenv()
@@ -32,6 +32,15 @@ def send_money_tool(data):
             return send_money(parsed['amount'], parsed['receiver_username'])
         except:
             return {"error": "Invalid input format for SendMoney"}
+        
+def transaction_history_tool(data):
+    if isinstance(data, str):
+        data = data.strip().lower()
+        if "sent" in data:
+            return get_transaction_history("sent")
+        elif "received" in data:
+            return get_transaction_history("received")
+    return get_transaction_history()
 
 tools = [
     Tool(
@@ -48,6 +57,11 @@ tools = [
         name="SendMoney",
         func=send_money_tool,
         description="Use this to send money. The user is already logged in, call this directly without logging in first. Input should be dictionary: {'receiver_username': str, 'amount': float}"
+    ),
+    Tool(
+        name="GetTransactionHistory",
+        func=transaction_history_tool,
+        description="Get the user's transaction history. Call this directly, no login needed. Optionally filter by type. Input: 'sent', 'received', or leave blank for all transactions."
     )
 ]
 

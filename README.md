@@ -12,7 +12,7 @@ A conversational AI agent that lets users interact with a personal fintech API u
 ## Setup
 1. Clone repo
 ```
-git clone https://github.com/your-username/ai-finance-agent.git`
+git clone https://github.com/your-username/ai-finance-agent.git
 cd ai-finance-agent
 ```
 
@@ -22,8 +22,8 @@ pip install fastapi uvicorn langchain langchain-core langchain-groq langchain-co
 ```
 
 3. Set up environment variables
-```
 Create a .env file inside the agent/ folder:
+```
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
@@ -44,3 +44,4 @@ python main.py
 - Login — Login with username <user> and password <pass>
 - Check balance — What is my balance?
 - Send money — Send <amount> to <username>
+- Check transaction history — show my transaction history, show only sent transactions, show received transactions

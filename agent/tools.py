@@ -66,3 +66,28 @@ def send_money(amount: float, recipient: str):
     except Exception as e:
         logging.error("❌ SEND MONEY ERROR: %s", e)
         return {"error": str(e)}
+    
+def get_transaction_history(filter_type=None):
+    logging.info("🔥 GET TRANSACTION HISTORY CALLED")
+    headers = {"Authorization": f"Bearer {SESSION.get('token', '')}"}
+    params = {}
+    if filter_type and filter_type in ("sent", "received"):
+        params["type"] = filter_type
+    try:
+        res = requests.get(f"{BASE_URL}/transactions/history", headers=headers, params=params, timeout=5)
+        res.raise_for_status()
+        history = res.json().get("history", [])
+        if not history:
+            return "No transaction history found."
+        lines = []
+        for t in history:
+            ts = t.get("timestamp", "")[:10]  # just the date part
+            if t["type"] == "sent":
+                lines.append(f"[{ts}] Sent ₱{t['amount']} to {t['to']}")
+            else:
+                lines.append(f"[{ts}] Received ₱{t['amount']} from {t['from']}")
+        logging.info("✅ TRANSACTION HISTORY RETRIEVED")
+        return "\n".join(lines)
+    except Exception as e:
+        logging.error("❌ TRANSACTION HISTORY ERROR: %s", e)
+        return {"error": str(e)}
