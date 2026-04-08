@@ -11,23 +11,33 @@ A conversational AI agent that lets users interact with a personal fintech API u
 
 ## Setup
 1. Clone repo
-<br>`git clone https://github.com/your-username/ai-finance-agent.git
-<br>cd ai-finance-agent`
+```
+git clone https://github.com/your-username/ai-finance-agent.git`
+cd ai-finance-agent
+```
 
 2. Install dependencies
-<br>`pip install fastapi uvicorn langchain langchain-core langchain-groq langchain-community python-dotenv requests`
+```
+pip install fastapi uvicorn langchain langchain-core langchain-groq langchain-community python-dotenv requests
+```
 
 3. Set up environment variables
-<br>Create a .env file inside the agent/ folder:
-<br>`GROQ_API_KEY=your_groq_api_key_here`
+```
+Create a .env file inside the agent/ folder:
+GROQ_API_KEY=your_groq_api_key_here
+```
 
 4. Start the API
-<br>`cd backend
-<br>uvicorn app.main:app --reload --host 0.0.0.0 --port 8000`
+```
+cd backend
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
 
 5. Run the agent
-<br>`cd agent
-<br>python main.py`
+```
+cd agent
+python main.py
+```
 ---
 
 ## Usage
