@@ -1,6 +1,6 @@
 # AI Finance Agent
 
-A conversational AI agent that lets users interact with a personal fintech API using natural language. Built with LangChain and powered by Groq, users can check their wallet balance and send money just by chatting.
+A conversational AI agent that lets users interact with a [personal fintech API](https://github.com/triciapulmano/fintech-api) using natural language. Built with LangChain and powered by Groq, users can check their wallet balance and send money just by chatting.
 
 
 ## Tech Stack
@@ -41,7 +41,7 @@ python main.py
 ---
 
 ## Usage
-- Login — Login with username <user> and password <pass>
+- Login — Login with username *insert user* and password insert pass*
 - Check balance — What is my balance?
-- Send money — Send <amount> to <username>
+- Send money — Send *insert amount* to *insert user*
 - Check transaction history — show my transaction history, show only sent transactions, show received transactions
