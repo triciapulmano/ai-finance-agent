@@ -41,7 +41,7 @@ python main.py
 ---
 
 ## Usage
-- Login — Login with username *insert user* and password insert pass*
+- Login — Login with username *<insert user>* and password *<insert pass>*
 - Check balance — What is my balance?
-- Send money — Send *insert amount* to *insert user*
+- Send money — Send *<insert amount>* to *<insert user>*
 - Check transaction history — show my transaction history, show only sent transactions, show received transactions
